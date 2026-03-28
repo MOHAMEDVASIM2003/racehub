@@ -1,0 +1,172 @@
+/* ── EVENT REGISTER PAGE ─────────────────── */
+
+/* Event overlay extras */
+.event-overlay {
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+}
+
+.event-reg-badge {
+  display: inline-block;
+  background-color: #E10600;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+/* Event info cards on image side */
+.event-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.event-info-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+.event-info-icon {
+  font-size: 22px;
+}
+
+.event-info-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #999999;
+}
+
+.event-info-value {
+  display: block;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Form side - scrollable for long form */
+.event-form-side {
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 50px 40px;
+}
+
+.event-form-wrapper {
+  max-width: 520px;
+}
+
+/* Section labels */
+.event-section-label {
+  font-family: 'Oswald', 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #E10600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a2a2a;
+  margin-top: 8px;
+}
+
+/* Two-column rows */
+.event-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Select dropdown styling */
+.auth-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.auth-select option {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+/* Date input fix for dark theme */
+.auth-input[type="date"] {
+  color-scheme: dark;
+}
+
+/* ── TABLET (<=1024px) ───────────────────── */
+@media (max-width: 1024px) {
+  .event-form-side {
+    padding: 40px 28px;
+  }
+
+  .event-form-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* ── MOBILE (<=768px) ────────────────────── */
+@media (max-width: 768px) {
+  .event-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .event-form-side {
+    padding: 32px 20px;
+  }
+
+  .event-info-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .event-info-card {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px 12px;
+  }
+
+  .event-info-value {
+    font-size: 12px;
+  }
+
+  .event-info-label {
+    font-size: 9px;
+  }
+}
+
+/* ── SMALL MOBILE (<=480px) ──────────────── */
+@media (max-width: 480px) {
+  .event-overlay {
+    padding: 20px 16px;
+  }
+
+  .event-info-cards {
+    flex-direction: column;
+  }
+
+  .event-info-card {
+    min-width: auto;
+  }
+
+  .event-section-label {
+    font-size: 12px;
+  }
+}
