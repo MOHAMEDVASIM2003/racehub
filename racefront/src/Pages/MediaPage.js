@@ -5,13 +5,17 @@ import Gallery from './Gallery';
 
 function MediaPage() {
   return (
-    <div>
+    <div className="media-page">
       <Navbar />
       <div style={{ paddingTop: '60px' }}>
         <div className="page-hero">
-          <h1>MEDIA</h1>
-          <p>Relive the most thrilling moments on the track</p>
+          <div className="hero-content">
+            <h1>MEDIA GALLERY</h1>
+            <div className="hero-divider"></div>
+            <p>Explore racing moments and memories</p>
+          </div>
         </div>
+        
         <Gallery />
         <Footer />
       </div>

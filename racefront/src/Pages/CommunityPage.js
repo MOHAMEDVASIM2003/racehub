@@ -9,8 +9,11 @@ function CommunityPage() {
       <Navbar />
       <div style={{ paddingTop: '60px' }}>
         <div className="page-hero">
-          <h1>COMMUNITY</h1>
-          <p>Connect with racers from around the world</p>
+          <div className="hero-content">
+            <h1>OUR COMMUNITY</h1>
+            <div className="hero-divider"></div>
+            <p>Connect with racers around the world</p>
+          </div>
         </div>
         <Community />
         <Footer />

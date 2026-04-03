@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar, faMapMarkerAlt, faFire } from "@fortawesome/free-solid-svg-icons";
 import IMAGES from "../Assets/images";
 import "./Style.css";
 
@@ -23,34 +25,66 @@ function FeaturedEvents() {
 
   const visibleEvents = showAll ? allEvents : allEvents.slice(0, 3);
 
+  const getTagColor = (tag) => {
+    const colors = {
+      CIRCUIT: "#E10600",
+      DRIFT: "#FF6B35",
+      ENDURANCE: "#004E89",
+      RALLY: "#F77F00",
+      GT: "#06A77D",
+      DRAG: "#D00000",
+      KART: "#9D4EDD"
+    };
+    return colors[tag] || "#E10600";
+  };
+
   return (
-    <div className="feature">
-      <div className="event">Featured Events</div>
+    <div className="featured-events-section">
+      <div className="featured-header">
+        <h1 className="featured-title">
+          <FontAwesomeIcon icon={faFire} className="fire-icon" />
+          Featured Events
+        </h1>
+        <p className="featured-subtitle">Don't miss out on the biggest racing events of the season</p>
+      </div>
 
       <div className="all-events-grid">
         {visibleEvents.map((evt) => (
           <div className="all-event-card" key={evt.id}>
             <div className="all-event-img-wrapper">
               <img src={evt.image} alt={evt.title} />
-              {evt.featured && <div className="badge-top badge-featured">FEATURED</div>}
-              <div className="badge-top badge-circuit">{evt.tag}</div>
+              {evt.featured && <div className="badge-top badge-featured">⭐ FEATURED</div>}
+              <div className="badge-top badge-circuit" style={{ backgroundColor: getTagColor(evt.tag) }}>
+                {evt.tag}
+              </div>
             </div>
+            
             <div className="all-event-info">
               <h3 className="all-event-title">{evt.title}</h3>
-              <p className="all-event-date">{evt.date}</p>
-              <p className="all-event-location">{evt.location}</p>
-              <Link to={`/events/${evt.id}/register`} className="all-event-btn">REGISTER NOW</Link>
+              
+              <div className="event-meta">
+                <div className="meta-item">
+                  <FontAwesomeIcon icon={faCalendar} className="meta-icon" />
+                  <span className="all-event-date">{evt.date}</span>
+                </div>
+                <div className="meta-item">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="meta-icon" />
+                  <span className="all-event-location">{evt.location}</span>
+                </div>
+              </div>
+              
+              <Link to={`/events/${evt.id}/register`} className="all-event-btn">
+                REGISTER NOW
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="btn">
-        <center>
-          <button className="view-btn" onClick={() => setShowAll(!showAll)}>
-            {showAll ? "SHOW LESS" : "VIEW ALL EVENTS"}
-          </button>
-        </center>
+      <div className="events-button-wrapper">
+        <button className="view-btn" onClick={() => setShowAll(!showAll)}>
+          {showAll ? "← SHOW LESS EVENTS" : "VIEW ALL EVENTS →"}
+        </button>
       </div>
     </div>
   );

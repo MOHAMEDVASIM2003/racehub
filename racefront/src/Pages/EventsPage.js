@@ -9,8 +9,11 @@ function EventsPage() {
       <Navbar />
       <div style={{ paddingTop: '60px' }}>
         <div className="page-hero">
-          <h1>EVENTS</h1>
-          <p>Find and register for the latest racing events near you</p>
+          <div className="hero-content">
+            <h1>RACING EVENTS</h1>
+            <div className="hero-divider"></div>
+            <p>Find and join the best racing events</p>
+          </div>
         </div>
         <FeaturedEvents />
         <Footer />
