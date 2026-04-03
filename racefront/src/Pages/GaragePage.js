@@ -9,8 +9,11 @@ function GaragePage() {
       <Navbar />
       <div style={{ paddingTop: '60px' }}>
         <div className="page-hero">
-          <h1>GARAGE</h1>
-          <p>Choose your membership and unlock exclusive racing perks</p>
+          <div className="hero-content">
+            <h1>MEMBERSHIP PLANS</h1>
+            <div className="hero-divider"></div>
+            <p>Choose your plan and start racing</p>
+          </div>
         </div>
         <Plans />
         <Footer />
