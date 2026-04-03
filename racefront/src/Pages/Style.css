@@ -1097,3 +1097,257 @@ width:100%;
   .footer-input-row { width: 100%; }
   .footer-input { flex: 1; min-width: 0; }
 }
+
+/* ── MEMBERSHIP PLANS SECTION ───────────── */
+.plans-section {
+  padding: 80px 80px;
+  background: #f9f9f9;
+}
+
+.plans-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.plans-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #111111;
+  margin: 0 0 16px 0;
+}
+
+.plans-subtitle {
+  font-size: 18px;
+  color: #666666;
+  margin: 0;
+}
+
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.plan-card--popular {
+  border-color: #E10600;
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(225, 6, 0, 0.15);
+}
+
+.plan-card--popular:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(225, 6, 0, 0.25);
+}
+
+.plan-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #E10600, #c80500);
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.plan-content {
+  padding: 40px 30px 30px 30px;
+  flex-grow: 1;
+}
+
+.plan-card--popular .plan-content {
+  padding-top: 55px;
+}
+
+.plan-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 20px 0;
+  letter-spacing: 1px;
+}
+
+.plan-price {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-amount {
+  font-size: 42px;
+  font-weight: 700;
+  color: #E10600;
+}
+
+.price-period {
+  font-size: 16px;
+  color: #888888;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 15px;
+  color: #444444;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-icon {
+  color: #E10600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.plan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E10600;
+  color: white;
+  padding: 14px 30px;
+  margin: 0 30px 30px 30px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: calc(100% - 60px);
+}
+
+.plan-button:hover {
+  background-color: #c80500;
+  transform: scale(1.02);
+}
+
+/* ── RESPONSIVE PLANS ───────────────────── */
+@media (max-width: 1024px) {
+  .plans-section {
+    padding: 60px 40px;
+  }
+
+  .plans-title {
+    font-size: 40px;
+  }
+
+  .plans-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .plan-card--popular {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .plans-section {
+    padding: 40px 20px;
+  }
+
+  .plans-header {
+    margin-bottom: 40px;
+  }
+
+  .plans-title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .plans-subtitle {
+    font-size: 16px;
+  }
+
+  .plans-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .plan-card {
+    width: 100%;
+  }
+
+  .plan-card--popular {
+    grid-column: auto;
+    max-width: 100%;
+    transform: scale(1);
+    margin: 0;
+  }
+
+  .plan-card--popular:hover {
+    transform: translateY(-8px);
+  }
+
+  .plan-content {
+    padding: 30px 20px 20px 20px;
+  }
+
+  .plan-card--popular .plan-content {
+    padding-top: 45px;
+  }
+
+  .plan-name {
+    font-size: 24px;
+  }
+
+  .price-amount {
+    font-size: 36px;
+  }
+
+  .feature-item {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  .plan-button {
+    margin: 0 20px 20px 20px;
+    width: calc(100% - 40px);
+    padding: 12px 20px;
+  }
+}
