@@ -30,14 +30,6 @@ function Community() {
 
   return (
     <div className="community-section">
-      <div className="community-header">
-        <div className="community-header-content">
-          <h1 className="community-title">Community Spotlight</h1>
-          <div className="header-divider"></div>
-          <p className="community-subtitle">Meet the fastest racers in our community</p>
-        </div>
-      </div>
-
       <div className="community-cards-wrapper">
         <div className="community-cards-grid">
           {communityMembers.map((member) => (
