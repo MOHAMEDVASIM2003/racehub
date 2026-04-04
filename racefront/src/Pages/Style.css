@@ -1944,6 +1944,7 @@ width:100%;
     color:white;
     border :none;
 }   
+/* ✓ Legacy community class (deprecated) */
 .community{
     margin-top: 60px;
     margin-left: 145px;
@@ -1951,8 +1952,6 @@ width:100%;
     display: flex;
     direction: row;
     gap:50px;
-
-    
 }
 .community-text{
     margin-left: 100px;
@@ -1964,30 +1963,24 @@ width:100%;
 .community h1{
     font-size: 96px;
     font-weight: 700;
-    ;
 }
 .community p{
-    font-size: 30px;
-    font-weight: 200;
     font-size: 40px;
+    font-weight: 200;
 }
 .community-text2{
-        width: 570px;
-        height: 570px;
-       
-        
-       
+    width: 570px;
+    height: 570px;
 }
 .raceline-txt{
     color: #dd110a;
-    font: bold;
+    font-weight: bold;
 }
 .Ourstory{
     color: #E10600;
     font-weight: 700;
     font-size: 10px;
     font-style: oblique;
- 
     margin-top: 0;
 }
 .para{
