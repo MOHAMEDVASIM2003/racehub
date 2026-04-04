@@ -2,38 +2,70 @@ import React from "react";
 import { Link } from "react-router-dom";
 import IMAGES from "../Assets/images";
 import "./Style.css";
+
 function Community() {
+  const communityMembers = [
+    {
+      id: 1,
+      name: "Mike Drift",
+      badge: "PRO",
+      wins: 8,
+      image: IMAGES.profile1
+    },
+    {
+      id: 2,
+      name: "Sarah Speed",
+      badge: "PRO",
+      wins: 12,
+      image: IMAGES.profile2
+    },
+    {
+      id: 3,
+      name: "Alex Thunder",
+      badge: "ELITE",
+      wins: 15,
+      image: IMAGES.profile3
+    }
+  ];
+
   return (
-    <div className="gear">
-      <div className="communitytxt">
-      <h1>Community Spotlight</h1>
-      </div>
-      <div className="card-container">
-        <div className="card">
-          <img src={IMAGES.profile1} alt="Mike Drift" />
-          <h3>Mike Drift</h3>
-          <div className="badge">PRO</div>
-          <div className="wins">8 Race Wins</div>
-        </div>
-
-        <div className="card">
-          <img src={IMAGES.profile2} alt="Mike Drift" />
-          <h3>Mike Drift</h3>
-          <div className="badge">PRO</div>
-          <div className="wins">8 Race Wins</div>
-        </div>
-
-        <div className="card">
-          <img src={IMAGES.profile3} alt="Mike Drift" />
-          <h3>Mike Drift</h3>
-          <div className="badge">PRO</div>
-          <div className="wins">8 Race Wins</div>
+    <div className="community-section">
+      <div className="community-header">
+        <div className="community-header-content">
+          <h1 className="community-title">Community Spotlight</h1>
+          <div className="header-divider"></div>
+          <p className="community-subtitle">Meet the fastest racers in our community</p>
         </div>
       </div>
 
-      <center>
-        <Link to="/community/join" className="join-btn">Join the Community</Link>
-      </center>
+      <div className="community-cards-wrapper">
+        <div className="community-cards-grid">
+          {communityMembers.map((member) => (
+            <div key={member.id} className="community-card">
+              <div className="card-image-wrapper">
+                <img src={member.image} alt={member.name} className="card-image" />
+                <div className="card-overlay"></div>
+              </div>
+              <div className="card-content">
+                <h3 className="card-name">{member.name}</h3>
+                <div className="card-badge" data-type={member.badge.toLowerCase()}>
+                  {member.badge}
+                </div>
+                <div className="card-wins">
+                  <span className="wins-icon">🏆</span>
+                  <span className="wins-text">{member.wins} Race Wins</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="community-cta">
+        <Link to="/community/join" className="cta-button">
+          Join the Community
+        </Link>
+      </div>
     </div>
   );
 }
