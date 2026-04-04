@@ -1327,6 +1327,329 @@
 }
 
 /* ── OLD GALLERY STYLES (DEPRECATED) ────── */
+/* ── COMMUNITY SECTION ──────────────────── */
+.community-section {
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+  overflow: hidden;
+}
+
+.community-header {
+  padding: 80px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.community-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(225, 6, 0, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.community-header::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(225, 6, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.community-header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.community-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+  animation: slideDown 0.8s ease-out;
+}
+
+.header-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #E10600, transparent);
+  margin: 20px auto 20px;
+  animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.community-subtitle {
+  font-size: 18px;
+  color: #dddddd;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  animation: slideUp 0.8s ease-out 0.4s backwards;
+}
+
+.community-cards-wrapper {
+  padding: 60px 40px;
+}
+
+.community-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.community-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  max-width: 340px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.community-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 40px rgba(225, 6, 0, 0.2);
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e10600 0%, #a20400 100%);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.community-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.community-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-content {
+  padding: 24px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+.card-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-badge[data-type="pro"] {
+  background: linear-gradient(135deg, #E10600 0%, #a20400 100%);
+  color: white;
+}
+
+.card-badge[data-type="elite"] {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.card-wins {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666666;
+  margin-top: 12px;
+}
+
+.wins-icon {
+  font-size: 16px;
+}
+
+.wins-text {
+  font-weight: 500;
+}
+
+.community-cta {
+  display: flex;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #E10600 0%, #a20400 100%);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px 48px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(225, 6, 0, 0.2);
+  border: none;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(225, 6, 0, 0.35);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE DESIGN ──────────────────── */
+@media (max-width: 1024px) {
+  .community-header {
+    padding: 60px 30px;
+  }
+
+  .community-title {
+    font-size: 40px;
+  }
+
+  .community-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .community-header {
+    padding: 50px 20px;
+  }
+
+  .community-title {
+    font-size: 32px;
+  }
+
+  .community-subtitle {
+    font-size: 16px;
+  }
+
+  .community-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 100%;
+  }
+
+  .community-card {
+    max-width: 100%;
+  }
+
+  .card-image-wrapper {
+    height: 240px;
+  }
+
+  .community-cards-wrapper {
+    padding: 40px 20px;
+  }
+
+  .community-cta {
+    padding: 40px 20px;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .community-header {
+    padding: 40px 16px;
+  }
+
+  .community-title {
+    font-size: 28px;
+  }
+
+  .community-subtitle {
+    font-size: 14px;
+  }
+
+  .community-cards-grid {
+    gap: 20px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-name {
+    font-size: 18px;
+  }
+
+  .cta-button {
+    padding: 14px 32px;
+    font-size: 12px;
+  }
+}
+
+/* ── LEGACY CLASSES (for backward compatibility) ──────────────────── */
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -1358,14 +1681,15 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
-.communitytxt{
+
+.communitytxt {
   font-family: Oswald;
-font-weight: 700;
-font-size: 48px;
-line-height: 72px;
-letter-spacing: 2px;
-text-align: center;
-margin-top: 20px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 72px;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .badge {
@@ -1397,10 +1721,12 @@ margin-top: 20px;
   width: 260px;
   padding: 16px;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .join-btn:hover {
   background-color: darkred;
+  transform: translateY(-2px);
 }
 
 .gear {
