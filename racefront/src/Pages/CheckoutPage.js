@@ -83,16 +83,16 @@ function CheckoutPage() {
     <div>
       <Navbar />
       <div style={{ paddingTop: '60px' }}>
-        <div className="auth-container">
+        <div className="checkout-container">
 
           {/* Left - Plan Summary */}
-          <div className="auth-image-side">
-            <img src={IMAGES.bike3} alt="Raceline membership" className="auth-image" />
-            <div className="auth-image-overlay ck-overlay">
-              {plan.popular && <div className="event-reg-badge">MOST POPULAR</div>}
-              {!plan.popular && <div className="event-reg-badge">MEMBERSHIP</div>}
-              <h2 className="auth-image-title">{plan.name.toUpperCase()}</h2>
-              <p className="auth-image-text">Unlock your full racing potential with Raceline</p>
+          <div className="checkout-summary-side">
+            <img src={IMAGES.bike3} alt="Raceline membership" className="checkout-image" />
+            <div className="checkout-image-overlay ck-overlay">
+              {plan.popular && <div className="checkout-badge popular">MOST POPULAR</div>}
+              {!plan.popular && <div className="checkout-badge">MEMBERSHIP</div>}
+              <h2 className="checkout-plan-title">{plan.name.toUpperCase()}</h2>
+              <p className="checkout-plan-subtitle">Unlock your full racing potential with Raceline</p>
 
               {/* Price card */}
               <div className="ck-price-card">
@@ -105,7 +105,7 @@ function CheckoutPage() {
 
               {/* Features */}
               <div className="ck-features">
-                <div className="ck-features-title">What's included:</div>
+                <div className="ck-features-title">✨ What's Included:</div>
                 {plan.features.map((feature, i) => (
                   <div key={i} className="ck-feature-item">
                     <FontAwesomeIcon icon={faCheck} className="ck-feature-icon" />
@@ -129,125 +129,252 @@ function CheckoutPage() {
           </div>
 
           {/* Right - Payment Form */}
-          <div className="auth-form-side event-form-side">
-            <div className="auth-form-wrapper event-form-wrapper">
-              <div className="auth-brand">
-                <span className="auth-brand-race">RACE</span>
-                <span className="auth-brand-line">LINE</span>
+          <div className="checkout-form-side">
+            <div className="checkout-form-wrapper">
+              <div className="checkout-header">
+                <div className="checkout-brand">
+                  <span className="checkout-brand-race">RACE</span>
+                  <span className="checkout-brand-line">LINE</span>
+                </div>
+                <h1 className="checkout-title">Complete Your Order</h1>
+                <p className="checkout-subtitle">You're subscribing to the <strong>{plan.name}</strong> plan</p>
               </div>
-              <h1 className="auth-title">Complete Your Order</h1>
-              <p className="auth-subtitle">You're subscribing to the <strong style={{ color: '#E10600' }}>{plan.name}</strong> plan</p>
 
-              {error && <div className="auth-error">{error}</div>}
+              {/* Progress Steps */}
+              <div className="checkout-steps">
+                <div className="step complete">
+                  <span className="step-number">1</span>
+                  <span className="step-label">Account</span>
+                </div>
+                <div className="step-divider"></div>
+                <div className="step complete">
+                  <span className="step-number">2</span>
+                  <span className="step-label">Payment</span>
+                </div>
+                <div className="step-divider"></div>
+                <div className="step active">
+                  <span className="step-number">3</span>
+                  <span className="step-label">Review</span>
+                </div>
+              </div>
 
-              <form onSubmit={handleSubmit} className="auth-form">
+              {error && <div className="checkout-error">{error}</div>}
 
-                {/* Account */}
-                <div className="event-section-label">Account Details</div>
+              <form onSubmit={handleSubmit} className="checkout-form">
 
-                <div className="event-row">
-                  <div className="auth-field">
-                    <label className="auth-label">Full Name</label>
-                    <input type="text" name="fullName" className="auth-input" placeholder="John Doe" value={form.fullName} onChange={handleChange} required />
+                {/* Account Section */}
+                <div className="checkout-section">
+                  <div className="section-header">
+                    <h3>👤 Account Details</h3>
                   </div>
-                  <div className="auth-field">
-                    <label className="auth-label">Email</label>
-                    <input type="email" name="email" className="auth-input" placeholder="you@example.com" value={form.email} onChange={handleChange} required />
+                  
+                  <div className="section-row">
+                    <div className="form-field">
+                      <label className="form-label">Full Name <span className="required">*</span></label>
+                      <input 
+                        type="text" 
+                        name="fullName" 
+                        className="form-input" 
+                        placeholder="John Doe" 
+                        value={form.fullName} 
+                        onChange={handleChange} 
+                        required 
+                      />
+                    </div>
+                    <div className="form-field">
+                      <label className="form-label">Email <span className="required">*</span></label>
+                      <input 
+                        type="email" 
+                        name="email" 
+                        className="form-input" 
+                        placeholder="you@example.com" 
+                        value={form.email} 
+                        onChange={handleChange} 
+                        required 
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Payment */}
-                <div className="event-section-label">Payment Information</div>
+                {/* Payment Section */}
+                <div className="checkout-section">
+                  <div className="section-header">
+                    <h3>💳 Payment Information</h3>
+                  </div>
 
-                <div className="auth-field">
-                  <label className="auth-label">Card Number</label>
-                  <input type="text" name="cardNumber" className="auth-input" placeholder="1234 5678 9012 3456" value={form.cardNumber} onChange={handleChange} maxLength={19} required />
+                  <div className="form-field">
+                    <label className="form-label">Card Number <span className="required">*</span></label>
+                    <input 
+                      type="text" 
+                      name="cardNumber" 
+                      className="form-input" 
+                      placeholder="1234 5678 9012 3456" 
+                      value={form.cardNumber} 
+                      onChange={handleChange} 
+                      maxLength={19} 
+                      required 
+                    />
+                  </div>
+
+                  <div className="section-row">
+                    <div className="form-field">
+                      <label className="form-label">Expiry <span className="required">*</span></label>
+                      <input 
+                        type="text" 
+                        name="expiry" 
+                        className="form-input" 
+                        placeholder="MM / YY" 
+                        value={form.expiry} 
+                        onChange={handleChange} 
+                        maxLength={7} 
+                        required 
+                      />
+                    </div>
+                    <div className="form-field">
+                      <label className="form-label">CVV <span className="required">*</span></label>
+                      <input 
+                        type="text" 
+                        name="cvv" 
+                        className="form-input" 
+                        placeholder="123" 
+                        value={form.cvv} 
+                        onChange={handleChange} 
+                        maxLength={4} 
+                        required 
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="ck-card-row">
-                  <div className="auth-field">
-                    <label className="auth-label">Expiry Date</label>
-                    <input type="text" name="expiry" className="auth-input" placeholder="MM / YY" value={form.expiry} onChange={handleChange} maxLength={7} required />
+                {/* Billing Section */}
+                <div className="checkout-section">
+                  <div className="section-header">
+                    <h3>📍 Billing Address</h3>
                   </div>
-                  <div className="auth-field">
-                    <label className="auth-label">CVV</label>
-                    <input type="text" name="cvv" className="auth-input" placeholder="123" value={form.cvv} onChange={handleChange} maxLength={4} required />
-                  </div>
-                </div>
 
-                {/* Billing Address */}
-                <div className="event-section-label">Billing Address</div>
-
-                <div className="auth-field">
-                  <label className="auth-label">Street Address</label>
-                  <input type="text" name="billingAddress" className="auth-input" placeholder="123 Race Street" value={form.billingAddress} onChange={handleChange} required />
-                </div>
-
-                <div className="ck-address-row">
-                  <div className="auth-field">
-                    <label className="auth-label">City</label>
-                    <input type="text" name="city" className="auth-input" placeholder="City" value={form.city} onChange={handleChange} required />
+                  <div className="form-field">
+                    <label className="form-label">Street Address <span className="required">*</span></label>
+                    <input 
+                      type="text" 
+                      name="billingAddress" 
+                      className="form-input" 
+                      placeholder="123 Race Street" 
+                      value={form.billingAddress} 
+                      onChange={handleChange} 
+                      required 
+                    />
                   </div>
-                  <div className="auth-field">
-                    <label className="auth-label">ZIP Code</label>
-                    <input type="text" name="zip" className="auth-input" placeholder="12345" value={form.zip} onChange={handleChange} required />
-                  </div>
-                  <div className="auth-field">
-                    <label className="auth-label">Country</label>
-                    <select name="country" className="auth-input auth-select" value={form.country} onChange={handleChange} required>
-                      <option value="" disabled>Select</option>
-                      <option value="us">United States</option>
-                      <option value="uk">United Kingdom</option>
-                      <option value="ca">Canada</option>
-                      <option value="au">Australia</option>
-                      <option value="de">Germany</option>
-                      <option value="in">India</option>
-                      <option value="other">Other</option>
-                    </select>
+
+                  <div className="section-row three-columns">
+                    <div className="form-field">
+                      <label className="form-label">City <span className="required">*</span></label>
+                      <input 
+                        type="text" 
+                        name="city" 
+                        className="form-input" 
+                        placeholder="City" 
+                        value={form.city} 
+                        onChange={handleChange} 
+                        required 
+                      />
+                    </div>
+                    <div className="form-field">
+                      <label className="form-label">ZIP Code <span className="required">*</span></label>
+                      <input 
+                        type="text" 
+                        name="zip" 
+                        className="form-input" 
+                        placeholder="12345" 
+                        value={form.zip} 
+                        onChange={handleChange} 
+                        required 
+                      />
+                    </div>
+                    <div className="form-field">
+                      <label className="form-label">Country <span className="required">*</span></label>
+                      <select 
+                        name="country" 
+                        className="form-input" 
+                        value={form.country} 
+                        onChange={handleChange} 
+                        required
+                      >
+                        <option value="" disabled>Select</option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="au">Australia</option>
+                        <option value="de">Germany</option>
+                        <option value="in">India</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
 
                 {/* Promo Code */}
-                <div className="auth-field">
-                  <label className="auth-label">Promo Code (Optional)</label>
-                  <input type="text" name="promoCode" className="auth-input" placeholder="Enter promo code" value={form.promoCode} onChange={handleChange} />
+                <div className="form-field">
+                  <label className="form-label">Promo Code <span className="optional">(Optional)</span></label>
+                  <input 
+                    type="text" 
+                    name="promoCode" 
+                    className="form-input" 
+                    placeholder="Enter promo code" 
+                    value={form.promoCode} 
+                    onChange={handleChange} 
+                  />
                 </div>
 
                 {/* Order Summary */}
-                <div className="ck-summary">
-                  <div className="ck-summary-row">
+                <div className="checkout-summary">
+                  <div className="summary-title">Order Summary</div>
+                  <div className="summary-item">
                     <span>{plan.name} Plan</span>
-                    <span>${plan.price}/{plan.billing}</span>
+                    <span className="summary-price">${plan.price}/{plan.billing}</span>
                   </div>
-                  <div className="ck-summary-row">
+                  <div className="summary-item">
                     <span>Discount</span>
-                    <span className="ck-discount">-$0.00</span>
+                    <span className="summary-discount">-$0.00</span>
                   </div>
-                  <div className="ck-summary-divider"></div>
-                  <div className="ck-summary-row ck-summary-total">
+                  <div className="summary-divider"></div>
+                  <div className="summary-item total">
                     <span>Total Today</span>
                     <span>${plan.price}</span>
                   </div>
                 </div>
 
                 {/* Terms */}
-                <label className="auth-remember auth-terms">
-                  <input type="checkbox" name="agreed" checked={form.agreed} onChange={handleChange} />
-                  <span>I agree to the <a href="#terms" className="auth-forgot">Subscription Terms</a>, <a href="#refund" className="auth-forgot">Refund Policy</a>, and <a href="#privacy" className="auth-forgot">Privacy Policy</a></span>
-                </label>
+                <div className="terms-box">
+                  <label className="terms-checkbox">
+                    <input 
+                      type="checkbox" 
+                      name="agreed" 
+                      checked={form.agreed} 
+                      onChange={handleChange} 
+                    />
+                    <span>
+                      I agree to the <a href="#terms" className="terms-link">Subscription Terms</a>, <a href="#refund" className="terms-link">Refund Policy</a>, and <a href="#privacy" className="terms-link">Privacy Policy</a>
+                    </span>
+                  </label>
+                </div>
 
-                <button type="submit" className="auth-submit-btn" disabled={loading}>
-                  {loading ? 'PROCESSING...' : `PAY $${plan.price} & SUBSCRIBE`}
+                {/* Submit Button */}
+                <button 
+                  type="submit" 
+                  className="checkout-btn" 
+                  disabled={loading}
+                >
+                  {loading ? '⏳ PROCESSING PAYMENT...' : `🔒 PAY $${plan.price} & SUBSCRIBE`}
                 </button>
 
-                <p className="ck-secure-note">
+                <p className="checkout-secure">
                   <FontAwesomeIcon icon={faLock} style={{ marginRight: '6px' }} />
-                  Your payment is secure and encrypted
+                  Your payment is secure, encrypted, and PCI compliant
                 </p>
               </form>
 
-              <p className="auth-switch">
-                <Link to="/garage" className="auth-switch-link">&larr; Back to Plans</Link>
+              <p className="checkout-back">
+                <Link to="/garage" className="back-link">← Back to Plans</Link>
               </p>
             </div>
           </div>

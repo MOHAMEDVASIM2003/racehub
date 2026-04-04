@@ -9,8 +9,11 @@ function JoinPage() {
       <Navbar />
       <div style={{ paddingTop: '60px' }}>
         <div className="page-hero">
-          <h1>JOIN NOW</h1>
-          <p>Become part of the world's premier racing community</p>
+          <div className="hero-content">
+            <h1>JOIN NOW</h1>
+            <div className="hero-divider"></div>
+            <p>Become part of the world's premier racing community</p>
+          </div>
         </div>
         <JoinNow />
         <Footer />
